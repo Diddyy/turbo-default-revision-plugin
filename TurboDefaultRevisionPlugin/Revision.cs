@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Turbo.Core.Packets.Messages;
 using Turbo.Core.Packets.Revisions;
-using Turbo.Packets.Incoming.Navigator;
 using Turbo.Packets.Outgoing.Catalog;
 using Turbo.Packets.Outgoing.Handshake;
 using Turbo.Packets.Outgoing.Inventory.Badges;
@@ -26,6 +25,7 @@ using TurboDefaultRevisionPlugin.Parsers.Inventory.Furni;
 using TurboDefaultRevisionPlugin.Parsers.Navigator;
 using TurboDefaultRevisionPlugin.Parsers.Room.Action;
 using TurboDefaultRevisionPlugin.Parsers.Room.Avatar;
+using TurboDefaultRevisionPlugin.Parsers.Room.Chat;
 using TurboDefaultRevisionPlugin.Parsers.Room.Engine;
 using TurboDefaultRevisionPlugin.Parsers.Room.Furniture;
 using TurboDefaultRevisionPlugin.Parsers.Room.Session;
@@ -188,6 +188,13 @@ namespace TurboDefaultRevisionPlugin
             Parsers.Add(Incoming.PassCarryItemToPet, new PassCarryItemToPetParser());
             Parsers.Add(Incoming.Sign, new SignParser());
             #endregion
+            
+            #region Chat
+            Parsers.Add(Incoming.CancelTyping, new CancelTypingParser());
+            Parsers.Add(Incoming.Chat, new ChatParser());
+            Parsers.Add(Incoming.StartTyping, new StartTypingParser());
+            Parsers.Add(Incoming.Whisper, new WhisperParser());
+            #endregion
 
             #region Engine
             Parsers.Add(Incoming.GetFurnitureAliases, new GetFurnitureAliasesParser());
@@ -315,6 +322,7 @@ namespace TurboDefaultRevisionPlugin
 
             #region Chat
             Serializers.Add(typeof(ChatMessage), new ChatSerializer(Outgoing.Chat));
+            Serializers.Add(typeof(WhisperMessage), new WhisperSerializer(Outgoing.Whisper));
             Serializers.Add(typeof(FloodControlMessage), new FloodControlSerializer(Outgoing.FloodControl));
             Serializers.Add(typeof(RemaningMutePeriodMessage), new RemainingMutePeriodSerializer(Outgoing.RemainingMutePeriod));
             Serializers.Add(typeof(RoomChatSettingsMessage), new RoomChatSettingsSerializer(Outgoing.RoomChatSettings));

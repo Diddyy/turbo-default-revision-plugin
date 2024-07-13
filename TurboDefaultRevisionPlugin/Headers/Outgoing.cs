@@ -73,6 +73,7 @@ namespace TurboDefaultRevisionPlugin.Headers
 
         #region Chat
         public const int Chat = 1446;
+        public const int Whisper = 2704;
         public const int FloodControl = 566;
         public const int RemainingMutePeriod = 826;
         public const int RoomChatSettings = 1191;

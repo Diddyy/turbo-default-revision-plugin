@@ -123,6 +123,9 @@
                 #endregion
 
                 #region Chat
+                public const int CancelTyping = 1474;
+                public const int Chat = 1314;
+                public const int StartTyping = 1597;
                 public const int Whisper = 1543;
                 #endregion
 
