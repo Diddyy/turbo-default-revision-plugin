@@ -23,6 +23,7 @@ using TurboDefaultRevisionPlugin.Parsers.Handshake;
 using TurboDefaultRevisionPlugin.Parsers.Inventory.Badges;
 using TurboDefaultRevisionPlugin.Parsers.Inventory.Furni;
 using TurboDefaultRevisionPlugin.Parsers.Navigator;
+using TurboDefaultRevisionPlugin.Parsers.Preferences;
 using TurboDefaultRevisionPlugin.Parsers.Room.Action;
 using TurboDefaultRevisionPlugin.Parsers.Room.Avatar;
 using TurboDefaultRevisionPlugin.Parsers.Room.Chat;
@@ -194,6 +195,7 @@ namespace TurboDefaultRevisionPlugin
             Parsers.Add(Incoming.Chat, new ChatParser());
             Parsers.Add(Incoming.StartTyping, new StartTypingParser());
             Parsers.Add(Incoming.Whisper, new WhisperParser());
+            Parsers.Add(Incoming.SetChatStylePreference, new SetChatStylePreferenceParser());
             #endregion
 
             #region Engine
