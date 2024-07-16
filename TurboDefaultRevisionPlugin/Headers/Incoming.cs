@@ -128,6 +128,7 @@
                 public const int StartTyping = 1597;
                 public const int Whisper = 1543;
                 public const int SetChatStylePreference = 1030;
+                public const int Shout = 2085;
                 #endregion
 
                 #region Engine

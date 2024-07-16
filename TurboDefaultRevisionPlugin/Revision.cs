@@ -196,6 +196,7 @@ namespace TurboDefaultRevisionPlugin
             Parsers.Add(Incoming.StartTyping, new StartTypingParser());
             Parsers.Add(Incoming.Whisper, new WhisperParser());
             Parsers.Add(Incoming.SetChatStylePreference, new SetChatStylePreferenceParser());
+            Parsers.Add(Incoming.Shout, new ShoutParser());
             #endregion
 
             #region Engine
@@ -325,6 +326,7 @@ namespace TurboDefaultRevisionPlugin
             #region Chat
             Serializers.Add(typeof(ChatMessage), new ChatSerializer(Outgoing.Chat));
             Serializers.Add(typeof(WhisperMessage), new WhisperSerializer(Outgoing.Whisper));
+            Serializers.Add(typeof(ShoutMessage), new ShoutSerializer(Outgoing.Shout));
             Serializers.Add(typeof(FloodControlMessage), new FloodControlSerializer(Outgoing.FloodControl));
             Serializers.Add(typeof(RemaningMutePeriodMessage), new RemainingMutePeriodSerializer(Outgoing.RemainingMutePeriod));
             Serializers.Add(typeof(RoomChatSettingsMessage), new RoomChatSettingsSerializer(Outgoing.RoomChatSettings));
